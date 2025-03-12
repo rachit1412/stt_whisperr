@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech-to-Text App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Speech-to-Text App</h1>
+    <button onclick="transcribeAudio()">Transcribe Audio</button>
+    <p id="transcription"></p>
+
+    <script>
+        async function transcribeAudio() {
+            const response = await fetch('/transcribe', { method: 'POST' });
+            const data = await response.json();
+            document.getElementById('transcription').innerText = data.transcription;
+        }
+    </script>
+</body>
+</html>
