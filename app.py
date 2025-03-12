@@ -47,7 +47,7 @@ def transcribe():
     stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
     chunk_file = "temp_chunk.wav"
-    record_chunk(p, stream, chunk_file, chunk_length=5)
+    record_chunk(p, stream, chunk_file, chunk_length=10)
     transcription = transcribe_chunk(model, chunk_file)
     os.remove(chunk_file)
 
