@@ -1,3 +1,4 @@
+/* General styling for the body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -6,10 +7,12 @@ body {
     padding: 20px;
 }
 
+/* Header styling */
 h1 {
     color: #4CAF50;
 }
 
+/* Button styling */
 button {
     background-color: #4CAF50;
     color: white;
@@ -29,6 +32,7 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Transcription display area styling */
 #transcription {
     font-size: 18px;
     margin-top: 20px;
@@ -37,4 +41,12 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Status messages styling */
+.status {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 20px;
 }

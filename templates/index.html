@@ -9,13 +9,30 @@
 <body>
     <h1>Speech-to-Text App</h1>
     <button onclick="transcribeAudio()">Transcribe Audio</button>
-    <p id="transcription"></p>
+    <p id="status" class="status"></p> <!-- Status element for updates -->
+    <p id="transcription"></p> <!-- Transcription text element -->
 
     <script>
         async function transcribeAudio() {
+            const statusElement = document.getElementById('status');
+            const transcriptionElement = document.getElementById('transcription');
+            
+            // Step 1: Display "Recording..."
+            statusElement.innerText = "Recording...";
+            transcriptionElement.innerText = ""; // Clear previous transcription
+
+            // Send the transcription request to the server
             const response = await fetch('/transcribe', { method: 'POST' });
+
+            // Step 2: Display "Processing..."
+            statusElement.innerText = "Processing...";
+
+            // Wait for server response
             const data = await response.json();
-            document.getElementById('transcription').innerText = data.transcription;
+
+            // Step 3: Display the final transcription
+            statusElement.innerText = "Done!";
+            transcriptionElement.innerText = data.transcription;
         }
     </script>
 </body>
